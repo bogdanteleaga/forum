@@ -1,10 +1,7 @@
-<h1>Forum</h1>
-<h2>Login</h2>
-
-<a href="/users/new">Register</a>
+<h2>Register</h2>
 
 <%=
-  form_for :user, '/users/login' do
+  form_for :user, '/users' do
     div class: 'name' do
       label      :name
       text_field :name
@@ -16,7 +13,7 @@
     end
 
     div class: 'controls' do
-      submit 'Login'
+      submit 'Register'
     end
   end
 %>

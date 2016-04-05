@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt'
 gem 'bundler'
 gem 'pry'
 gem 'rake'
