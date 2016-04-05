@@ -16,4 +16,12 @@ class UserRepository
       false
     end
   end
+
+  def self.logged_in(session)
+    if self.logged_in? session
+      UserRepository.get_name session[:user]
+    else
+      nil
+    end
+  end
 end

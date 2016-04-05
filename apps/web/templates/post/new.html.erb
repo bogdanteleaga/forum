@@ -1,0 +1,21 @@
+<h2>New Post</h2>
+
+<%=
+  form_for :post, '/post' do
+    div class: 'title' do
+      label      :title
+      text_field :title
+    end
+
+    div class: 'content' do
+      label     :content
+      text_area :content
+    end
+
+    hidden_field :topic_id, value: topic_id
+
+    div class: 'controls' do
+      submit 'Make post'
+    end
+  end
+%>

@@ -1,3 +1,15 @@
 <h1>Topics</h1>
 
-<a href="/users/logout">Logout</a>
+<a href="/users/logout">Logout</a></br>
+<a href="/topics/new">Create a new topic</a>
+
+<% if topics.any? %>
+  <% topics.each do |topic| %>
+    <div class="topic">
+      <h2><a href="/topics/<%= topic.id %>"><%= topic.title %></a></h2>
+      <p><%= topic.category %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p class="placeholder">There are no topics.</p>
+<% end %>

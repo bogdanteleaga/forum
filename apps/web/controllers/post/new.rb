@@ -1,11 +1,12 @@
-module Web::Controllers::Topics
-  class Index
+module Web::Controllers::Post
+  class New
     include Web::Action
-    expose :topics
+    expose :topic_id
 
     def call(params)
       halt 401 unless UserRepository.logged_in? session
-      @topics = TopicRepository.all
+      @topic_id = params[:topic_id]
+      puts @topic_id
     end
   end
 end

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bcrypt'
 gem 'bundler'
+gem 'jquery-hanami'
 gem 'pry'
 gem 'rake'
 gem 'hanami',       '0.7.2'

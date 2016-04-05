@@ -1,0 +1,19 @@
+<h2>New Topic</h2>
+
+<%=
+  form_for :topic, '/topics' do
+    div class: 'title' do
+      label      :title
+      text_field :title
+    end
+
+    div class: 'category' do
+      label          :category
+      text_field :category
+    end
+
+    div class: 'controls' do
+      submit 'Create topic'
+    end
+  end
+%>

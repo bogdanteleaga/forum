@@ -53,6 +53,17 @@ Hanami::Model.configure do
       attribute :name, String
       attribute :password, String
     end
+
+    collection :posts do
+      entity Post
+      repository PostRepository
+
+      attribute :id, Integer
+      attribute :user_id, Integer
+      attribute :topic_id, Integer
+      attribute :title, String
+      attribute :content, String
+    end
   end
 end.load!
 

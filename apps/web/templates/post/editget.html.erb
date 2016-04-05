@@ -1,0 +1,21 @@
+<h2>Edit Topic</h2>
+
+<%=
+    form_for :post, '/post/edit/'+post_id.to_s do
+      div class: 'title' do
+        label      :title
+        text_field :title, value: post_title
+      end
+
+      div class: 'content' do
+        label     :content
+        text_area :content, post_content, rows: 10, cols: 50
+      end
+
+      hidden_field :topic_id, value: post_topic_id
+
+      div class: 'controls' do
+        submit 'Make post'
+      end
+    end
+  %>

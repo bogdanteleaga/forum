@@ -1,0 +1,51 @@
+<h2>Topic</h2>
+
+<%= javascript 'jquery' %>
+<%= javascript 'jquery_ujs' %>
+
+<a href="/topics">All topics</a>
+
+<% if topic.nil? %>
+  <p class="placeholder">There is no such topic.</p>
+<% else %>
+  <div class ="topic">
+    <h3>Title: <%= topic.title %></h3>
+    <h3>Category: <%= topic.category %></h3>
+  </div>
+  <h2>Posts:</h2>
+  <% if posts.any? %>
+    <% posts.each do |post| %>
+      <div class="post">
+        <h4>User: <%= post.user_id %><% if post.title != "" %>, Title: <%= post.title %><% end %></h4>
+        <p><%= post.content %>
+          <% if post.topic_id %>
+          <a href='/post/delete/<%= post.id %>' data-confirm="Are you sure?">Delete</a>
+          <a href='/post/edit/<%= post.id %>' data-confirm="Are you sure?">Edit</a>
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+  <% else %>
+    <p class="placeholder">There are no posts in this topic.</p>
+  <% end %>
+  <%=
+    form_for :post, '/post' do
+      div class: 'title' do
+        label      :title
+        text_field :title
+      end
+
+      div class: 'content' do
+        label     :content
+        text_area :content
+      end
+
+      hidden_field :topic_id, value: topic.id
+
+      div class: 'controls' do
+        submit 'Make post'
+      end
+    end
+  %>
+  <a href="/post/new?topic_id=<%= topic.id %>">Alternatively, you can make a post here</a>
+<% end %>
