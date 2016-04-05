@@ -1,0 +1,7 @@
+/public/assets*
+/tmp
+vendor/
+Gemfile.lock
+db/forum_development.sqlite
+db/forum_test.sqlite
+db/schema.sql
