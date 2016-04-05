@@ -1,2 +1,20 @@
 <h1>Forum</h1>
+<h2>Login</h2>
 
+<%=
+  form_for :user, '/users/login' do
+    div class: 'name' do
+      label      :name
+      text_field :name
+    end
+
+    div class: 'password' do
+      label          :password
+      password_field :password
+    end
+
+    div class: 'controls' do
+      submit 'Login'
+    end
+  end
+%>
