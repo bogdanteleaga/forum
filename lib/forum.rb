@@ -44,6 +44,15 @@ Hanami::Model.configure do
       attribute :title, String
       attribute :category, String
     end
+
+    collection :users do
+      entity User
+      repository UserRepository
+
+      attribute :id, Integer
+      attribute :name, String
+      attribute :password, String
+    end
   end
 end.load!
 
